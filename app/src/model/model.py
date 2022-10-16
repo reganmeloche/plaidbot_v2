@@ -1,3 +1,4 @@
+from typing import List
 from sklearn.model_selection import train_test_split
 
 from app.classes.message import InputMessage
@@ -7,7 +8,7 @@ from app.options.model_options import ModelOptions
 
 
 class IModel:
-    def fit(self, X: list[InputMessage], y: list[int]):
+    def fit(self, X: List[InputMessage], y: List[int]):
         raise NotImplementedError()
 
 
@@ -22,7 +23,7 @@ class Model(IModel):
         self.__inner_model = inner_model
         self.__opts = options
 
-    def fit(self, X: list[InputMessage], y: list[int]):
+    def fit(self, X: List[InputMessage], y: List[int]):
         X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=self.__opts.val_size, stratify=y)
         
         train_loader = self.__batch_creator.create(X_train, y_train)
@@ -32,7 +33,7 @@ class Model(IModel):
 
         return 
 
-    def predict(self, X: list[InputMessage]):
+    def predict(self, X: List[InputMessage]):
         fake_labels = [0]*len(X)
         pred_loader = self.__batch_creator.create(X, fake_labels)
         

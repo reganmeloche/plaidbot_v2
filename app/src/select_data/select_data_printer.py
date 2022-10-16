@@ -1,4 +1,5 @@
 import random
+from typing import List
 import numpy as np
 
 from app.classes.message import Message
@@ -10,13 +11,13 @@ class SelectDataPrinter:
     def print_begin(self):
         self._print('Beginning data selection...')
     
-    def print_initial_messages(self, messages: list[Message]):
+    def print_initial_messages(self, messages: List[Message]):
         self._print('Fetched messages')
         self._print(f'Num messages: {len(messages)}')
         #random_message = random.choice(messages)
         #self._print(f'Sample message: {random_message.text}')
 
-    def print_final_messages(self, messages: list[Message]):
+    def print_final_messages(self, messages: List[Message]):
         self._print('Filtered messages')
         self._print(f'Num messages: {len(messages)}')
         #self._print(f'Sample message: {random.choice(messages)}')

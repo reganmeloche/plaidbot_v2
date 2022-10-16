@@ -1,14 +1,15 @@
+from typing import List
 from app.classes.message import InputMessage
 
 class IGetInputMessages:
-    def get(self, enc_text: list[int]) -> InputMessage:
+    def get(self, enc_text: List[int]) -> InputMessage:
         raise NotImplementedError()
 
 class InputMessageGetter(IGetInputMessages):
     def __init__(self, max_len):
         self.__max_len = max_len
     
-    def get(self, enc_text: list[int]) -> InputMessage:
+    def get(self, enc_text: List[int]) -> InputMessage:
         max_text = enc_text[0 : self.__max_len]
 
         next_input = [0]*self.__max_len

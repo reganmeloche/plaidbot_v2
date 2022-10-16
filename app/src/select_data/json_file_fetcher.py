@@ -1,8 +1,9 @@
+from typing import List
 from app.src.select_data.json_extractor import IExtractJson
 from app.src.shared.file_reader import IReadFiles
 
 class IFetchJsonFiles:
-    def fetch(self, chosen_folders: list[str]):
+    def fetch(self, chosen_folders: List[str]):
         raise NotImplementedError()
 
 class JsonFileFetcher(IFetchJsonFiles):
@@ -14,7 +15,7 @@ class JsonFileFetcher(IFetchJsonFiles):
         self.__file_reader = file_reader
         self.__json_extractor = json_extractor
 
-    def fetch(self, chosen_folders: list[str]):
+    def fetch(self, chosen_folders: List[str]):
         json_files = []
         all_folders = self.__file_reader.get_all_files('')
 

@@ -1,11 +1,12 @@
-from datetime import datetime 
+from datetime import datetime
+from typing import List 
 
 class PreproOptions:
     user_filename:str = 'users.json'
     
     message_folder:str = 'data/target_convos'
 
-    selected_folders: list[str] = [
+    selected_folders: List[str] = [
         'general',
         # add more folders...
     ]

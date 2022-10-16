@@ -1,9 +1,11 @@
+from typing import Dict, List
 from app.classes.message import Message
 from app.src.select_data.json_file_fetcher import IFetchJsonFiles
 from app.src.select_data.raw_message_extractor import IExtractRawMessages
 
+
 class IFetchMessages:
-    def fetch(self, chosen_folders: list[str], user_id_int_dict:dict[str,int]) -> list[Message]:
+    def fetch(self, chosen_folders: List[str], user_id_int_dict:Dict[str,int]) -> List[Message]:
         raise NotImplementedError()
 
 class MessageFetcher:
@@ -15,7 +17,7 @@ class MessageFetcher:
         self.__json_file_fetcher = json_file_fetcher
         self.__raw_message_extractor = raw_message_extractor
     
-    def fetch(self, chosen_folders: list[str], user_id_int_dict:dict[str,int]) -> list[Message]:
+    def fetch(self, chosen_folders: List[str], user_id_int_dict:Dict[str,int]) -> List[Message]:
         json_files = self.__json_file_fetcher.fetch(chosen_folders)
 
         raw_messages = self.__raw_message_extractor.extract(json_files)

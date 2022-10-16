@@ -1,9 +1,10 @@
+from typing import List
 from app.classes.message import Message
 from app.src.model.model import Model
 from app.src.predict.prediction_dependencies import PredictionDependencies
 from app.options.model_options import ModelOptions
 
-def run_prediction(model: Model, message_texts: list[str], options: ModelOptions):
+def run_prediction(model: Model, message_texts: List[str], options: ModelOptions):
     deps = PredictionDependencies(options)
 
     test_messages = [Message('-1', t, -1, -1) for t in message_texts]

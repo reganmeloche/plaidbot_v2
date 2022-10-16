@@ -1,3 +1,6 @@
+from typing import List
+
+
 class RawMessage:
     def __init__(self, json_msg):
         self.id = json_msg['client_msg_id']
@@ -23,6 +26,6 @@ class Message:
 
 
 class InputMessage:
-    def __init__(self, input_ids: list[int], mask_ids: list[int]):
+    def __init__(self, input_ids: List[int], mask_ids: List[int]):
         self.input_ids = input_ids
         self.mask_ids = mask_ids

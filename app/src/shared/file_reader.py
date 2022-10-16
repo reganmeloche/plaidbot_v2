@@ -2,12 +2,13 @@
 import os
 import codecs
 import json
+from typing import List
 
 class IReadFiles:
     def read_file(self, filename:str):
         raise NotImplementedError()
     
-    def get_all_files(self, folder:str) -> list[str]:
+    def get_all_files(self, folder:str) -> List[str]:
         raise NotImplementedError()
 
 
@@ -22,5 +23,5 @@ class FileReader(IReadFiles):
         f.close()
         return json_data
     
-    def get_all_files(self, folder:str) -> list[str]:
+    def get_all_files(self, folder:str) -> List[str]:
         return os.listdir(f'{self.root}/{folder}')

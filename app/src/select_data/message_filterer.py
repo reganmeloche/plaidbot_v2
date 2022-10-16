@@ -1,16 +1,17 @@
 from datetime import datetime
 import copy
 import random
+from typing import List
 
 from app.classes.message import Message
 from app.options.prepro_options import PreproOptions
 
 class IFilterMessages:
-    def filter(self, messages: list[Message], opts: PreproOptions):
+    def filter(self, messages: List[Message], opts: PreproOptions):
         raise NotImplementedError()
 
 class MessageFilterer(IFilterMessages):
-    def filter(self, messages: list[Message], opts: PreproOptions):
+    def filter(self, messages: List[Message], opts: PreproOptions):
         f_messages = copy.deepcopy(messages)
 
         # Filter by date
