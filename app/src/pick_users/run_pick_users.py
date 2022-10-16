@@ -1,4 +1,4 @@
-from app.lib.pick_users.pick_user_dependencies import PickUserDependencies
+from app.src.pick_users.pick_user_dependencies import PickUserDependencies
 from app.options.prepro_options import PreproOptions
 
 def run_pick_users(opts: PreproOptions):

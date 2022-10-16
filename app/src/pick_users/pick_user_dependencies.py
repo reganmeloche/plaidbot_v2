@@ -1,5 +1,5 @@
-from app.lib.pick_users.user_fetcher import IFetchUsers, UserFetcher
-from app.lib.shared.file_reader import FileReader
+from app.src.pick_users.user_fetcher import IFetchUsers, UserFetcher
+from app.src.shared.file_reader import FileReader
 from app.options.prepro_options import PreproOptions
 
 class PickUserDependencies:

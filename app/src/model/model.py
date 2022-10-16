@@ -1,8 +1,8 @@
 from sklearn.model_selection import train_test_split
 
 from app.classes.message import InputMessage
-from app.lib.model.batch_creator import ICreateBertBatches
-from app.lib.model.inner_model import IInnerModel
+from app.src.model.batch_creator import ICreateBertBatches
+from app.src.model.inner_model import IInnerModel
 from app.options.model_options import ModelOptions
 
 

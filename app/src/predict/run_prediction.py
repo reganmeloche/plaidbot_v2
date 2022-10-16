@@ -1,6 +1,6 @@
 from app.classes.message import Message
-from app.lib.model.model import Model
-from app.lib.predict.prediction_dependencies import PredictionDependencies
+from app.src.model.model import Model
+from app.src.predict.prediction_dependencies import PredictionDependencies
 from app.options.model_options import ModelOptions
 
 def run_prediction(model: Model, message_texts: list[str], options: ModelOptions):

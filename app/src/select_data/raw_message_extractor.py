@@ -1,5 +1,5 @@
 from app.classes.message import RawMessage
-from app.lib.select_data.message_validator import IValidateMessages
+from app.src.select_data.message_validator import IValidateMessages
 
 class IExtractRawMessages:
     def extract(self, json_files) -> list[RawMessage]:

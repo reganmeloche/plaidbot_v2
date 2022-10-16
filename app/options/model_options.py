@@ -8,5 +8,4 @@ class ModelOptions:
     learning_rate = 2e-5
     
     user_int_name_dict = { 0: 'alice', 1: 'bob', 2: 'charlie', }
-    user_int_name_dict = {0: 'ruhanga', 1: 'Ardan Burton', 2: 'Matthieu Belanger', 3: 'Bert', 4: 'ChubThumper'}
     num_labels = 5 # Get rid of this... make it dynamic..

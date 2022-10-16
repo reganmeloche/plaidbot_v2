@@ -1,5 +1,5 @@
-from app.lib.select_data.json_extractor import IExtractJson
-from app.lib.shared.file_reader import IReadFiles
+from app.src.select_data.json_extractor import IExtractJson
+from app.src.shared.file_reader import IReadFiles
 
 class IFetchJsonFiles:
     def fetch(self, chosen_folders: list[str]):

@@ -1,11 +1,11 @@
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
-from app.lib.model.batch_creator import BatchCreator
-from app.lib.model.inner_model import InnerModel
+from app.src.model.batch_creator import BatchCreator
+from app.src.model.inner_model import InnerModel
 
-from app.lib.model.input_formatter import InputFormatter
-from app.lib.model.input_message_getter import InputMessageGetter
-from app.lib.model.optimizer_builder import OptimizerBuilder
-from app.lib.model.tokenizer import Tokenizer
+from app.src.model.input_formatter import InputFormatter
+from app.src.model.input_message_getter import InputMessageGetter
+from app.src.model.optimizer_builder import OptimizerBuilder
+from app.src.model.tokenizer import Tokenizer
 from app.options.model_options import ModelOptions
 
 

@@ -1,4 +1,4 @@
-from app.lib.shared.file_reader import IReadFiles
+from app.src.shared.file_reader import IReadFiles
 
 class IExtractJson:
     def extract_json(self, folder_name):

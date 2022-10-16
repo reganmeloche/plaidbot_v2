@@ -1,6 +1,6 @@
 from app.classes.message import Message
-from app.lib.select_data.json_file_fetcher import IFetchJsonFiles
-from app.lib.select_data.raw_message_extractor import IExtractRawMessages
+from app.src.select_data.json_file_fetcher import IFetchJsonFiles
+from app.src.select_data.raw_message_extractor import IExtractRawMessages
 
 class IFetchMessages:
     def fetch(self, chosen_folders: list[str], user_id_int_dict:dict[str,int]) -> list[Message]:

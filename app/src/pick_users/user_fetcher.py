@@ -1,5 +1,5 @@
 from app.classes.user import User
-from app.lib.shared.file_reader import IReadFiles
+from app.src.shared.file_reader import IReadFiles
 
 class IFetchUsers:
     def fetch(self, user_file:str = 'users.json') -> list[User]:

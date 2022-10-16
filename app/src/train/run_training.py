@@ -1,6 +1,6 @@
 from app.classes.message import Message
-from app.lib.model.model import Model
-from app.lib.train.training_dependencies import TrainingDependencies
+from app.src.model.model import Model
+from app.src.train.training_dependencies import TrainingDependencies
 from app.options.model_options import ModelOptions
 
 def run_training(messages: list[Message], options: ModelOptions) -> Model:

@@ -1,6 +1,6 @@
 from app.classes.message import InputMessage, Message
-from app.lib.model.input_message_getter import IGetInputMessages
-from app.lib.model.tokenizer import ITokenizeTexts
+from app.src.model.input_message_getter import IGetInputMessages
+from app.src.model.tokenizer import ITokenizeTexts
 
 class IFormatInputs:
     def format(self, messages: list[Message]) -> tuple[list[InputMessage], list[int]]:

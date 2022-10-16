@@ -1,4 +1,4 @@
-from app.lib.select_data.select_data_dependencies import SelectDataDependencies
+from app.src.select_data.select_data_dependencies import SelectDataDependencies
 from app.options.prepro_options import PreproOptions
 
 def run_select_data(opts: PreproOptions):
