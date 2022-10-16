@@ -11,6 +11,9 @@ class IInnerModel:
     
     def predict(self, test_loader: DataLoader):
         raise NotImplementedError()
+    
+    def get_base_model(self) -> PreTrainedModel:
+        raise NotImplementedError()
 
 
 class InnerModel(IInnerModel):
@@ -24,6 +27,9 @@ class InnerModel(IInnerModel):
         self.__device = device
         self.__optimizer = optimizer
         
+    def get_base_model(self):
+        return self.__base_model
+
     def train(self, train_loader: DataLoader, val_loader: DataLoader, num_epochs):
         for i in range(num_epochs):
             self._run_training_epoch(i, train_loader, val_loader)

@@ -10,7 +10,7 @@ from app.options.model_options import ModelOptions
 
 
 class TrainingDependencies:
-    def __init__(self, options: ModelOptions):
+    def __init__(self, options: ModelOptions, pred_toggle:bool = False):
         inner_tokenizer: DistilBertTokenizer = DistilBertTokenizer.from_pretrained(options.bert_model_name)
         
         tokenizer = Tokenizer(inner_tokenizer, options.max_len)
@@ -21,7 +21,11 @@ class TrainingDependencies:
 
         self.batch_creator = BatchCreator(options.batch_size)
 
-        base_model = DistilBertForSequenceClassification.from_pretrained(options.bert_model_name, num_labels=options.num_labels)
+        if pred_toggle:
+            base_model = DistilBertForSequenceClassification.from_pretrained(options.bert_model_name, num_labels=options.num_labels)
+        else:
+            base_model = DistilBertForSequenceClassification.from_pretrained(options.saved_model_name)
+        
         base_model.to(options.device)
         optimizer = OptimizerBuilder.build(base_model, options.learning_rate)
         self.inner_model = InnerModel(base_model, options.device, optimizer)

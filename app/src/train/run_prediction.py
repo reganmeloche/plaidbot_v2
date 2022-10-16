@@ -1,14 +1,21 @@
 from typing import List
 from app.classes.message import Message
 from app.src.model.model import Model
-from app.src.predict.prediction_dependencies import PredictionDependencies
+from app.src.train.training_dependencies import TrainingDependencies
 from app.options.model_options import ModelOptions
 
-def run_prediction(model: Model, message_texts: List[str], options: ModelOptions):
-    deps = PredictionDependencies(options)
+def run_prediction(model, message_texts: List[str], options: ModelOptions):
+    deps = TrainingDependencies(options, True)
 
     test_messages = [Message('-1', t, -1, -1) for t in message_texts]
     X, _ = deps.input_formatter.format(test_messages)
+
+    if model is None:
+        model = Model(
+            deps.batch_creator,
+            deps.inner_model,
+            options
+        )
 
     preds = model.predict(X)
 

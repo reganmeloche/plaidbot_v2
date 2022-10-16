@@ -7,5 +7,6 @@ class ModelOptions:
     device = 'cpu' #cuda:0
     learning_rate = 2e-5
     
+    saved_model_name = 'username/model-name'
     user_int_name_dict = { 0: 'alice', 1: 'bob', 2: 'charlie', }
     num_labels = 5 # Get rid of this... make it dynamic..

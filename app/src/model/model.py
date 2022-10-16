@@ -11,6 +11,12 @@ class IModel:
     def fit(self, X: List[InputMessage], y: List[int]):
         raise NotImplementedError()
 
+    def predict(self, X: List[InputMessage]) -> List[int]:
+        raise NotImplementedError()
+
+    def get_inner_model(self) -> IInnerModel:
+        raise NotImplementedError()
+
 
 class Model(IModel):
     def __init__(
@@ -33,10 +39,13 @@ class Model(IModel):
 
         return 
 
-    def predict(self, X: List[InputMessage]):
+    def predict(self, X: List[InputMessage]) -> List[int]:
         fake_labels = [0]*len(X)
         pred_loader = self.__batch_creator.create(X, fake_labels)
         
         predictions, _, _ = self.__inner_model.predict(pred_loader)        
 
         return predictions
+
+    def get_inner_model(self):
+        return self.__inner_model
