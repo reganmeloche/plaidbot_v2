@@ -22,9 +22,9 @@ class TrainingDependencies:
         self.batch_creator = BatchCreator(options.batch_size)
 
         if pred_toggle:
-            base_model = DistilBertForSequenceClassification.from_pretrained(options.bert_model_name, num_labels=options.num_labels)
-        else:
             base_model = DistilBertForSequenceClassification.from_pretrained(options.saved_model_name)
+        else:
+            base_model = DistilBertForSequenceClassification.from_pretrained(options.bert_model_name, num_labels=options.num_labels)
         
         base_model.to(options.device)
         optimizer = OptimizerBuilder.build(base_model, options.learning_rate)

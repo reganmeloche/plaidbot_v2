@@ -4,7 +4,7 @@ from typing import List
 class PreproOptions:
     user_filename:str = 'users.json'
     
-    message_folder:str = 'data/target_convos'
+    message_folder:str = '/content/drive/MyDrive/Colab Notebooks/plaidbot/messages'
 
     selected_folders: List[str] = [
         'general',

@@ -4,7 +4,7 @@ class ModelOptions:
     val_size = 0.2
     num_epochs = 2
     batch_size = 8
-    device = 'cpu' #cuda:0
+    device = 'cuda:0' #cpu
     learning_rate = 2e-5
     
     saved_model_name = 'username/model-name'
