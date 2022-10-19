@@ -10,12 +10,14 @@ class InputMessageGetter(IGetInputMessages):
         self.__max_len = max_len
     
     def get(self, enc_text: List[int]) -> InputMessage:
-        max_text = enc_text[0 : self.__max_len]
+        n = self.__max_len
+        max_text = enc_text[0:n]
+        m = len(max_text)
 
-        next_input = [0]*self.__max_len
-        next_input[0:len(max_text)] = max_text
+        next_input = [0] * n
+        next_input[0:m] = max_text
 
-        next_mask = [0]*self.__max_len
-        next_mask[0:len(max_text)] = [1]*len(max_text)
+        next_mask = [0] * n
+        next_mask[0:m] = [1] * m
 
         return InputMessage(next_input, next_mask)

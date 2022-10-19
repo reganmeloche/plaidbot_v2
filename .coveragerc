@@ -21,3 +21,4 @@ omit =
     app\src\train\training_dependencies.py
     app\src\train\run_prediction.py
     app\src\train\run_training.py
+    app\src\model\optimizer_builder.py
