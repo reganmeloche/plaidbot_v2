@@ -22,3 +22,5 @@ omit =
     app\src\train\run_prediction.py
     app\src\train\run_training.py
     app\src\model\optimizer_builder.py
+    app\src\web\web_app.py
+    app\src\web\web_dependencies.py

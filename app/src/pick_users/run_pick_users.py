@@ -29,10 +29,10 @@ def run_pick_users(opts: PreproOptions):
     user_id_int_dict =  { x.id : i for i,x in enumerate(selected_users) }
     user_int_name_dict = { i: x.name for i,x in enumerate(selected_users) }
 
-    print('\nCopy the following to \'user_int_name_dict\' in the Options.py file')
-    print(user_int_name_dict)
-
-    print('\n\nCopy the following to \'user_id_int_dict\' in the Options.py file')
+    print('\n\nSave the following to \'user_id_int_dict\' in the PreProOptions file')
     print(user_id_int_dict)
 
+    print('\nSave the following to \'user_int_name_dict\' in the ModelOptions file')
+    print(user_int_name_dict)
+    
     return
