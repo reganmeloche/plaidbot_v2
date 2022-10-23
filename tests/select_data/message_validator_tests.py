@@ -1,9 +1,9 @@
 from datetime import datetime
 import unittest
 from unittest.mock import MagicMock
-from app.classes.message import Message
-from app.options.prepro_options import PreproOptions
-from app.src.select_data.message_validator import MessageValidator
+from app_lib.classes.message import Message
+from app_lib.options.prepro_options import PreproOptions
+from app_lib.src.select_data.message_validator import MessageValidator
 
 class MessageValidatorTests(unittest.TestCase):
     def setUp(self):

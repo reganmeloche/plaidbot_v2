@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.select_data.message_validator import IValidateMessages
-from app.src.select_data.raw_message_extractor import RawMessageExtractor
+from app_lib.src.select_data.message_validator import IValidateMessages
+from app_lib.src.select_data.raw_message_extractor import RawMessageExtractor
 
 class RawMessageExtractorTests(unittest.TestCase):
     def setUp(self):

@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.model.input_formatter import IFormatInputs
-from app.src.model.model import IModel
-from app.src.train.user_predictor import UserPredictor
+from app_lib.src.model.input_formatter import IFormatInputs
+from app_lib.src.model.model import IModel
+from app_lib.src.train.user_predictor import UserPredictor
 from tests.helpers.test_messages import TestMessages
 
 class UserPredictorTests(unittest.TestCase):

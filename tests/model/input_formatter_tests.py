@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.model.input_formatter import InputFormatter
-from app.src.model.input_message_getter import InputMessageGetter
-from app.src.model.tokenizer import ITokenizeTexts
+from app_lib.src.model.input_formatter import InputFormatter
+from app_lib.src.model.input_message_getter import InputMessageGetter
+from app_lib.src.model.tokenizer import ITokenizeTexts
 from tests.helpers.test_messages import TestMessages
 
 class InputFormatterTests(unittest.TestCase):

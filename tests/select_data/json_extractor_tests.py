@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.pick_users.user_fetcher import UserFetcher
-from app.src.select_data.json_extractor import JsonExtractor
-from app.src.shared.file_reader import IReadFiles
+from app_lib.src.pick_users.user_fetcher import UserFetcher
+from app_lib.src.select_data.json_extractor import JsonExtractor
+from app_lib.src.shared.file_reader import IReadFiles
 
 class JsonExtractorTests(unittest.TestCase):
     def setUp(self):

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.model.batch_creator import BatchCreator
+from app_lib.src.model.batch_creator import BatchCreator
 from tests.helpers.test_messages import TestMessages
 
 class BatchCreatorTests(unittest.TestCase):

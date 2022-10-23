@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.model.input_message_getter import InputMessageGetter
+from app_lib.src.model.input_message_getter import InputMessageGetter
 
 class InputMessageGetterTests(unittest.TestCase):
     def setUp(self):

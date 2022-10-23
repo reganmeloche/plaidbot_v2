@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.model.tokenizer import Tokenizer
+from app_lib.src.model.tokenizer import Tokenizer
 from transformers import DistilBertTokenizer
 
 class TokenizerTests(unittest.TestCase):

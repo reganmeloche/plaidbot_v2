@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
-from app.src.train.user_predictor import IPredictUser
-from app.src.web.prediction_handler import PredictionRequestHandler
+from app_lib.src.train.user_predictor import IPredictUser
+from app_lib.src.web.prediction_handler import PredictionRequestHandler
 
 class PredictionHandlerTests(unittest.TestCase):
     def setUp(self):

@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import MagicMock
-from app.classes.message import RawMessage
-from app.src.select_data.message_fetcher import MessageFetcher
-from app.src.select_data.json_file_fetcher import IFetchJsonFiles
-from app.src.select_data.raw_message_extractor import IExtractRawMessages
+from app_lib.classes.message import RawMessage
+from app_lib.src.select_data.message_fetcher import MessageFetcher
+from app_lib.src.select_data.json_file_fetcher import IFetchJsonFiles
+from app_lib.src.select_data.raw_message_extractor import IExtractRawMessages
 
 class MessageFetcherTests(unittest.TestCase):
     def setUp(self):

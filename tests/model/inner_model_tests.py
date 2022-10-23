@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
 from transformers import DistilBertForSequenceClassification
-from app.src.model.inner_model import InnerModel
-from app.src.model.optimizer_builder import OptimizerBuilder
+from app_lib.src.model.inner_model import InnerModel
+from app_lib.src.model.optimizer_builder import OptimizerBuilder
 from tests.helpers.test_messages import TestMessages
 
 class InnerModelTests(unittest.TestCase):
