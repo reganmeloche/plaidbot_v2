@@ -1,6 +1,6 @@
+from sklearn.model_selection import train_test_split
 from app_lib.src.select_data.select_data_dependencies import SelectDataDependencies
 from app_lib.options.prepro_options import PreproOptions
-from app_lib.src.select_data.select_data_printer import SelectDataPrinter
 
 def run_select_data(opts: PreproOptions):
     deps = SelectDataDependencies(opts)
@@ -17,7 +17,9 @@ def run_select_data(opts: PreproOptions):
     # Print messages
     deps.printer.print_message_summary(messages)
 
-    # TODO: May add a split here for test data
+    # Split into train and test data
+    labels = [x.user_int_id for x in messages]
+    train_messages, test_messages, _, _ = train_test_split(messages, labels, test_size=opts.test_size, stratify=labels)
 
-    return messages
+    return train_messages, test_messages
 

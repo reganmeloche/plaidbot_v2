@@ -11,6 +11,8 @@ class PreproOptions:
         # add more folders...
     ]
 
+    test_size = 0.2
+
     user_id_int_dict = { 'U0ABCDEFG': 0, 'U0HIJKLMN': 1, 'U0PQRSTUV': 2, }
 
     # Filtering

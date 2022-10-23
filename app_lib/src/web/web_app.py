@@ -12,9 +12,9 @@ with app.app_context():
     def basic():
         return 'Hello, World!'
 
-    # @app.route('/predict', methods=['POST'])
-    # def predict():
-    #     request_text = request.form.get('text', None)
-    #     result = deps.prediction_handler.handle(request_text)
-    #     return jsonify(result)
+    @app.route('/predict', methods=['POST'])
+    def predict():
+        request_text = request.form.get('text', None)
+        result = deps.prediction_handler.handle(request_text)
+        return jsonify(result)
   
