@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 import requests
 from app_lib.options.model_options import ModelOptions
-#from app.src.web.web_dependencies import WebDependencies
+from app_lib.src.web.web_dependencies import WebDependencies
 
 app = Flask(__name__)
 
 with app.app_context():
-    #deps = WebDependencies(ModelOptions())
+    deps = WebDependencies(ModelOptions())
     
     @app.route('/')
     def basic():

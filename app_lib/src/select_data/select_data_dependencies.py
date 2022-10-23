@@ -20,5 +20,5 @@ class SelectDataDependencies:
         
         self.message_fetcher = MessageFetcher(json_file_fetcher, raw_message_extractor)
         self.message_filterer = MessageFilterer()
-        #self.printer = SelectDataPrinter()
+        self.printer = SelectDataPrinter()
     
