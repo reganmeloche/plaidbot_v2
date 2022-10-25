@@ -1,0 +1,2 @@
+class WebOptions:
+    secret = 'test'

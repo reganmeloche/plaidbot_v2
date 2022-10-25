@@ -11,7 +11,7 @@ class PredictionHandlerTests(unittest.TestCase):
 
     def test_prediction_handler(self):
         result = self.sut.handle('This is a test')
-        self.assertTrue('test_user' in result['text'])
+        self.assertTrue('test_user' in result)
         self.assertEqual(self.predictor.predict.call_count, 1)
   
 if __name__ == '__main__':

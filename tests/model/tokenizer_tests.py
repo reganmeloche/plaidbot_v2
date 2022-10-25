@@ -5,7 +5,7 @@ from transformers import DistilBertTokenizer
 
 class TokenizerTests(unittest.TestCase):
     def setUp(self):
-        self.inner_tokenizer = DistilBertTokenizer.from_pretrained('hf-internal-testing/tiny-bert')
+        self.inner_tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
         self.sut = Tokenizer(self.inner_tokenizer, 13)
         
     #@unittest.skip # Can often skip due to needing to load tokenizer

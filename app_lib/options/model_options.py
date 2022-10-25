@@ -1,5 +1,4 @@
 
-# TODO: May split up options for training and pred...
 class ModelOptions:
     max_len = 150
     bert_model_name = 'distilbert-base-uncased'
