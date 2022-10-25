@@ -41,6 +41,12 @@ class ModelTests(unittest.TestCase):
     def test_model_get_inner(self):
         res = self.sut.get_inner_model()
         self.assertEqual(type(res), IInnerModel)
-  
+
+    @unittest.skip # Can skip when options are not loaded
+    def test_model_build(self):
+        opts = ModelOptions()
+        result = Model.build(opts)
+        self.assertEqual(type(result), Model)
+
 if __name__ == '__main__':
     unittest.main()

@@ -3,6 +3,7 @@ from torch.utils.data import DataLoader
 from torch.optim import AdamW
 from transformers import PreTrainedModel
 import time
+from src.shared.printer import IPrintMessages
 
 
 class IInnerModel:
@@ -21,11 +22,13 @@ class InnerModel(IInnerModel):
         self, 
         base_model: PreTrainedModel, 
         device: str, 
-        optimizer: AdamW
+        optimizer: AdamW,
+        printer: IPrintMessages
     ):
         self.__base_model = base_model
         self.__device = device
         self.__optimizer = optimizer
+        self.__printer = printer
         
     def get_base_model(self):
         return self.__base_model
@@ -52,7 +55,7 @@ class InnerModel(IInnerModel):
 
 
     def _run_training_epoch(self, epoch, train_loader, val_loader):
-        print(f'\n\n --- Epoch {epoch+1}')
+        self.__printer.mprint(f'\n\n --- Epoch {epoch+1}')
         start = time.time()
 
         # Set to train mode: Tells model to compute gradients 
@@ -68,8 +71,8 @@ class InnerModel(IInnerModel):
         # Display results
         hours, rem = divmod(end-start, 3600)
         minutes, seconds = divmod(rem, 60)
-        print(f'Epoch {epoch+1}: train_loss: {train_loss:.4f} train_acc: {train_acc:.4f} | val_loss: {val_loss:.4f} val_acc: {val_acc:.4f}')
-        print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
+        self.__printer.mprint(f'Epoch {epoch+1}: train_loss: {train_loss:.4f} train_acc: {train_acc:.4f} | val_loss: {val_loss:.4f} val_acc: {val_acc:.4f}')
+        self.__printer.mprint("{:0>2}:{:0>2}:{:05.2f}".format(int(hours),int(minutes),seconds))
 
 
 
@@ -113,7 +116,7 @@ class InnerModel(IInnerModel):
             self.__optimizer.step()
         
         if i%500==0:
-            print(f'...batch {i}')
+            self.__printer.mprint(f'...batch {i}')
 
         return loss.item(), preds, b_labels, logits
 

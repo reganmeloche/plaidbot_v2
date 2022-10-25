@@ -1,9 +1,11 @@
 from typing import List
 from sklearn.model_selection import train_test_split
-from src.classes.message import InputMessage
-from src.model.batch_creator import ICreateBertBatches
-from src.model.inner_model import IInnerModel
+from transformers import PreTrainedModel
 from options.model_options import ModelOptions
+from src.classes.message import InputMessage
+from src.model.batch_creator import ICreateBertBatches, BatchCreator
+from src.model.inner_model import IInnerModel, InnerModel
+from src.model.optimizer_builder import OptimizerBuilder
 
 class IModel:
     def fit(self, X: List[InputMessage], y: List[int]):
@@ -47,3 +49,10 @@ class Model(IModel):
 
     def get_inner_model(self):
         return self.__inner_model
+    
+    @staticmethod
+    def build(base_model: PreTrainedModel, options: ModelOptions) -> IModel:
+        optimizer = OptimizerBuilder.build(base_model, options.learning_rate)
+        batch_creator = BatchCreator(options.batch_size)
+        inner_model = InnerModel(base_model, options.device, optimizer)
+        return Model(batch_creator, inner_model, options)

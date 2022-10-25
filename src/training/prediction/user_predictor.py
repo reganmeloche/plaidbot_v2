@@ -1,8 +1,10 @@
 from typing import Dict
+from transformers import DistilBertForSequenceClassification
 from src.classes.message import Message
-from src.model.input_formatter import IFormatInputs
-from src.model.model import IModel
-from src.training.prediction.new_message_validator import IValidateNewMessages
+from src.model.input_formatter import IFormatInputs, InputFormatter
+from src.model.model import IModel, Model
+from src.training.prediction.new_message_validator import IValidateNewMessages, NewMessageValidator
+from options.model_options import ModelOptions
 
 class IPredictUser:
     def predict(self, text:str) -> str:
@@ -36,3 +38,16 @@ class UserPredictor(IPredictUser):
         results = [self.__user_int_name_dict[p] for p in preds]
         
         return results[0]
+
+    @staticmethod
+    def build(options: ModelOptions):
+        base_model = DistilBertForSequenceClassification.from_pretrained(options.saved_model_name, use_auth_token=options.auth_token)
+        base_model.to(options.device)
+        
+        input_formatter = InputFormatter.build(options)
+        model = Model.build(base_model, options)
+
+        message_validator = NewMessageValidator()
+        return UserPredictor(input_formatter, model, options.user_int_name_dict, message_validator)
+        
+    

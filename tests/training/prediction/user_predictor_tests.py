@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
+from options.model_options import ModelOptions
 from src.model.input_formatter import IFormatInputs
 from src.model.model import IModel
 from src.training.prediction.new_message_validator import IValidateNewMessages
@@ -33,6 +34,12 @@ class UserPredictorTests(unittest.TestCase):
     
         result = self.sut.predict('also too short')
         self.assertEqual(result, 'failed')
+    
+    @unittest.skip # Can skip when options are not loaded
+    def test_user_predictor_build(self):
+        opts = ModelOptions()
+        result = UserPredictor.build(opts)
+        self.assertEqual(type(result), UserPredictor)
 
   
 if __name__ == '__main__':

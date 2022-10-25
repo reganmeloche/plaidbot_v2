@@ -15,7 +15,7 @@ def run_select_data(opts: PreproOptions):
     messages = deps.message_filterer.filter(messages, opts)
     
     # Print messages
-    deps.printer.print_message_summary(messages)
+    deps.data_printer.print_message_summary(messages)
 
     # Split into train and test data
     labels = [x.user_int_id for x in messages]

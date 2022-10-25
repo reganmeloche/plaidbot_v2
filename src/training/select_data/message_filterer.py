@@ -7,11 +7,11 @@ from src.classes.message import Message
 from options.prepro_options import PreproOptions
 
 class IFilterMessages:
-    def filter(self, messages: List[Message], opts: PreproOptions):
+    def filter(self, messages: List[Message], opts: PreproOptions) -> List[Message]:
         raise NotImplementedError()
 
 class MessageFilterer(IFilterMessages):
-    def filter(self, messages: List[Message], opts: PreproOptions):
+    def filter(self, messages: List[Message], opts: PreproOptions) -> List[Message]:
         f_messages = copy.deepcopy(messages)
 
         # Filter by date

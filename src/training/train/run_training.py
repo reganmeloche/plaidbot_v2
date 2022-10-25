@@ -5,7 +5,7 @@ from src.training.train.training_dependencies import TrainingDependencies
 from options.model_options import ModelOptions
 
 def run_training(messages: List[Message], options: ModelOptions) -> Model:
-    deps = TrainingDependencies(options, False)
+    deps = TrainingDependencies(options)
     
     model = Model(
         deps.batch_creator,

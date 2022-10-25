@@ -1,21 +1,31 @@
 from typing import List
 import numpy as np
 from src.classes.message import Message
+from src.shared.printer import IPrintMessages
 
-class SelectDataPrinter:
+class IPrintDataSelection:
+    def print_message_summary(self, messages: List[Message]):
+        raise NotImplementedError()
+    
+
+
+class SelectDataPrinter(IPrintDataSelection):
+    def __init__(self, printer: IPrintMessages):
+        self.__printer = printer
+
     def print_message_summary(self, messages: List[Message]):
         md = self._get_message_data(messages)
         
-        print('\nMessage Summary:')
-        print(f'Num Messages: {len(messages)}')
+        self.__printer.mprint('\nMessage Summary:')
+        self.__printer.mprint(f'Num Messages: {len(messages)}')
 
         for x in md['labels']:
-            print(f'{x["label"]}: {x["total"]} ({x["percent"]}%)')
+            self.__printer.mprint(f'{x["label"]}: {x["total"]} ({x["percent"]}%)')
         
         ch = md['ch']
         wd = md['wd']
-        print(f'# chars: {ch["av"]} ({ch["min"]} - {ch["max"]})')
-        print(f'# words: {wd["av"]} ({wd["min"]} - {wd["max"]})')
+        self.__printer.mprint(f'# chars: {ch["av"]} ({ch["min"]} - {ch["max"]})')
+        self.__printer.mprint(f'# words: {wd["av"]} ({wd["min"]} - {wd["max"]})')
         
     def _get_message_data(self, messages: List[Message]):
         result = {}

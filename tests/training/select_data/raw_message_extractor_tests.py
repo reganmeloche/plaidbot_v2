@@ -6,7 +6,7 @@ from src.training.select_data.raw_message_extractor import RawMessageExtractor
 class RawMessageExtractorTests(unittest.TestCase):
     def setUp(self):
         self.validator = IValidateMessages()
-        self.validator.validate = MagicMock(return_value=True)
+        self.validator.validate = MagicMock(side_effect=[True, True, False])
 
         self.sut = RawMessageExtractor(self.validator)
         
@@ -37,7 +37,7 @@ class RawMessageExtractorTests(unittest.TestCase):
             ]
         ]
         result = self.sut.extract(json_files)
-        self.assertEqual(len(result),3)
+        self.assertEqual(len(result),2)
 
 
   

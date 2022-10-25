@@ -1,6 +1,6 @@
 [run]
 branch=true
-source=app
+source=src
 
 [report]
 skip_empty=true
@@ -14,14 +14,8 @@ exclude_lines =
 
 omit =
     src\training\pick_users\pick_user_dependencies.py
-    src\training\pick_users\run_pick_users.py
     src\training\select_data\select_data_dependencies.py
-    src\training\select_data\select_data_printer.py
-    src\training\select_data\run_select_data.py
     src\training\train\training_dependencies.py
-    src\training\prediction\run_prediction.py
-    src\training\train\run_training.py
-    src\model\optimizer_builder.py
-    src\web\web_app.py
     src\web\web_dependencies.py
     src\web\secret_decorator.py
+    src\web\web_app.py

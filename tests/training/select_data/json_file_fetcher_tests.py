@@ -22,7 +22,7 @@ class JsonFileFetcherTests(unittest.TestCase):
         
 
     def test_json_extractor(self):
-        chosen_folders = ['folder1', 'folder2']
+        chosen_folders = ['folder1', 'folder2', 'not_there']
         results = self.sut.fetch(chosen_folders)
 
         self.assertEqual(len(results), 2)

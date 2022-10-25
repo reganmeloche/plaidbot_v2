@@ -8,7 +8,6 @@ class TokenizerTests(unittest.TestCase):
         self.inner_tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
         self.sut = Tokenizer(self.inner_tokenizer, 13)
         
-    #@unittest.skip # Can often skip due to needing to load tokenizer
     def test_tokenizer(self):
         text = 'This is a test.'
         result = self.sut.tokenize(text)

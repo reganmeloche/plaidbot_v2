@@ -13,13 +13,28 @@ class MessageFiltererTests(unittest.TestCase):
     def test_message_filterer(self):
         messages = [
             Message('id1', 'this is a test', 1609477201, 1), # good
+        ]
+        opts = PreproOptions()
+        opts.max_messages = 2
+        opts.min_date = datetime(2021, 1, 1, 0, 0, 0)
+        opts.min_num_words = 3
+
+        results = self.sut.filter(messages, opts)
+
+        self.assertEqual(len(results), 1)
+        ids = [x.id for x in results]
+        self.assertTrue('id1' in ids)
+    
+    def test_message_filterer_alt(self):
+        messages = [
+            Message('id1', 'this is a test', 1609477201, 1), # good
             Message('id2', 'too short', 1609477201, 1), # too short
             Message('id3', 'this is another test', 1609477100, 2), # too early
             Message('id4', 'this is a test', 1609477201, 1), # good
             Message('id5', 'this is a test', 1609477200, 1), # too many
         ]
         opts = PreproOptions()
-        opts.max_messages = 2
+        opts.max_messages = 0
         opts.min_date = datetime(2021, 1, 1, 0, 0, 0)
         opts.min_num_words = 3
 

@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
+from options.model_options import ModelOptions
 from src.model.input_formatter import InputFormatter
 from src.model.input_message_getter import InputMessageGetter
 from src.model.tokenizer import ITokenizeTexts
@@ -24,6 +25,12 @@ class InputFormatterTests(unittest.TestCase):
         self.assertEqual(len(results[0]), 10)
         self.assertEqual(len(results[1]), 10)
         self.assertEqual(results[1], [0]*10)
+
+    @unittest.skip # Can skip when options are not loaded
+    def test_input_formatter_build(self):
+        opts = ModelOptions()
+        result = InputFormatter.build(opts)
+        self.assertEqual(type(result), InputFormatter)
 
   
 if __name__ == '__main__':
