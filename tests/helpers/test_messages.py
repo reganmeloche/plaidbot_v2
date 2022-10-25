@@ -1,13 +1,13 @@
-from app_lib.classes.message import InputMessage, Message
+from src.classes.message import InputMessage, Message
 import torch
 from torch.utils.data import TensorDataset, DataLoader
 from sklearn.model_selection import train_test_split
 from transformers import DistilBertTokenizer
 
-from app_lib.src.model.batch_creator import BatchCreator
-from app_lib.src.model.input_formatter import InputFormatter
-from app_lib.src.model.input_message_getter import InputMessageGetter
-from app_lib.src.model.tokenizer import Tokenizer
+from src.model.batch_creator import BatchCreator
+from src.model.input_formatter import InputFormatter
+from src.model.input_message_getter import InputMessageGetter
+from src.model.tokenizer import Tokenizer
 
 class TestMessages:
     @staticmethod

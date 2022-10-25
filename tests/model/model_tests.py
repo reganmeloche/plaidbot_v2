@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import MagicMock
-from app_lib.options.model_options import ModelOptions
-from app_lib.src.model.batch_creator import ICreateBertBatches
-from app_lib.src.model.inner_model import IInnerModel
-from app_lib.src.model.model import Model
+from options.model_options import ModelOptions
+from src.model.batch_creator import ICreateBertBatches
+from src.model.inner_model import IInnerModel
+from src.model.model import Model
 from tests.helpers.test_messages import TestMessages
 
 class ModelTests(unittest.TestCase):

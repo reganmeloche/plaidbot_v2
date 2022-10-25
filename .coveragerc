@@ -13,14 +13,15 @@ exclude_lines =
     raise NotImplementedError
 
 omit =
-    app\src\pick_users\pick_user_dependencies.py
-    app\src\pick_users\run_pick_users.py
-    app\src\select_data\select_data_dependencies.py
-    app\src\select_data\select_data_printer.py
-    app\src\select_data\run_select_data.py
-    app\src\train\training_dependencies.py
-    app\src\train\run_prediction.py
-    app\src\train\run_training.py
-    app\src\model\optimizer_builder.py
-    app\src\web\web_app.py
-    app\src\web\web_dependencies.py
+    src\training\pick_users\pick_user_dependencies.py
+    src\training\pick_users\run_pick_users.py
+    src\training\select_data\select_data_dependencies.py
+    src\training\select_data\select_data_printer.py
+    src\training\select_data\run_select_data.py
+    src\training\train\training_dependencies.py
+    src\training\prediction\run_prediction.py
+    src\training\train\run_training.py
+    src\model\optimizer_builder.py
+    src\web\web_app.py
+    src\web\web_dependencies.py
+    src\web\secret_decorator.py
