@@ -1,5 +1,5 @@
 import random
-from src.training.prediction.user_predictor import IPredictUser
+from src.prediction.user_predictor import IPredictUser
 
 class IHandlePredictionRequests:
     def handle(self, text: str) -> str:

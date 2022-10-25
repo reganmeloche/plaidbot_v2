@@ -3,8 +3,8 @@ from unittest.mock import MagicMock
 from options.model_options import ModelOptions
 from src.model.input_formatter import IFormatInputs
 from src.model.model import IModel
-from src.training.prediction.new_message_validator import IValidateNewMessages
-from src.training.prediction.user_predictor import UserPredictor
+from src.prediction.new_message_validator import IValidateNewMessages
+from src.prediction.user_predictor import UserPredictor
 from tests.helpers.test_messages import TestMessages
 
 class UserPredictorTests(unittest.TestCase):

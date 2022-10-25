@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from src.training.prediction.new_message_validator import NewMessageValidator
+from src.prediction.new_message_validator import NewMessageValidator
 
 class NewMessageValidatorTests(unittest.TestCase):
     def setUp(self):

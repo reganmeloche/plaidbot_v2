@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from src.training.prediction.user_predictor import IPredictUser
+from src.prediction.user_predictor import IPredictUser
 from src.web.prediction_handler import PredictionRequestHandler
 
 class PredictionHandlerTests(unittest.TestCase):

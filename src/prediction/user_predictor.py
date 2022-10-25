@@ -3,7 +3,7 @@ from transformers import DistilBertForSequenceClassification
 from src.classes.message import Message
 from src.model.input_formatter import IFormatInputs, InputFormatter
 from src.model.model import IModel, Model
-from src.training.prediction.new_message_validator import IValidateNewMessages, NewMessageValidator
+from src.prediction.new_message_validator import IValidateNewMessages, NewMessageValidator
 from options.model_options import ModelOptions
 
 class IPredictUser:

@@ -1,5 +1,5 @@
 from options.model_options import ModelOptions
-from src.training.prediction.user_predictor import UserPredictor
+from src.prediction.user_predictor import UserPredictor
 from src.web.prediction_handler import PredictionRequestHandler
 
 class WebDependencies:
