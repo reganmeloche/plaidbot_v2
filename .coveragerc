@@ -16,6 +16,7 @@ omit =
     src\training\pick_users\pick_user_dependencies.py
     src\training\select_data\select_data_dependencies.py
     src\training\train\training_dependencies.py
+    src\shared\file_reader.py
     src\web\web_dependencies.py
     src\web\secret_decorator.py
     src\web\web_app.py
