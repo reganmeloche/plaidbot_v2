@@ -1,7 +1,7 @@
 from typing import List
 from sklearn.model_selection import train_test_split
 from transformers import PreTrainedModel
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 from src.classes.message import InputMessage
 from src.model.batch_creator import ICreateBertBatches, BatchCreator
 from src.model.inner_model import IInnerModel, InnerModel

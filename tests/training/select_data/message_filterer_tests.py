@@ -2,7 +2,7 @@ from datetime import datetime
 import unittest
 from unittest.mock import MagicMock
 from src.classes.message import Message
-from options.prepro_options import PreproOptions
+from src.options.prepro_options import PreproOptions
 from src.training.select_data.message_filterer import MessageFilterer
 
 class MessageFiltererTests(unittest.TestCase):

@@ -3,7 +3,7 @@ from src.model.batch_creator import BatchCreator, ICreateBertBatches
 from src.model.inner_model import IInnerModel, InnerModel
 from src.model.input_formatter import IFormatInputs, InputFormatter
 from src.model.optimizer_builder import OptimizerBuilder
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 
 class TrainingDependencies:
     input_formatter: IFormatInputs

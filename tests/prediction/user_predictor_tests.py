@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 from src.model.input_formatter import IFormatInputs
 from src.model.model import IModel
 from src.prediction.new_message_validator import IValidateNewMessages

@@ -1,6 +1,6 @@
 from functools import wraps
 from flask import g, request, redirect, url_for
-from options.web_options import WebOptions
+from src.options.web_options import WebOptions
 
 def secret_required(f):
     @wraps(f)

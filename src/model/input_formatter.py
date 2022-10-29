@@ -3,7 +3,7 @@ from src.classes.message import InputMessage, Message
 from src.model.input_message_getter import IGetInputMessages, InputMessageGetter
 from src.model.tokenizer import ITokenizeTexts, Tokenizer
 
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 from transformers import DistilBertTokenizer
 
 class IFormatInputs:

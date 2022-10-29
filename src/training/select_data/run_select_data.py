@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 from src.training.select_data.select_data_dependencies import SelectDataDependencies
-from options.prepro_options import PreproOptions
+from src.options.prepro_options import PreproOptions
 
 def run_select_data(opts: PreproOptions):
     deps = SelectDataDependencies(opts)

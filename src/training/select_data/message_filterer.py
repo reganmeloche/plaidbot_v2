@@ -4,7 +4,7 @@ import random
 from typing import List
 
 from src.classes.message import Message
-from options.prepro_options import PreproOptions
+from src.options.prepro_options import PreproOptions
 
 class IFilterMessages:
     def filter(self, messages: List[Message], opts: PreproOptions) -> List[Message]:

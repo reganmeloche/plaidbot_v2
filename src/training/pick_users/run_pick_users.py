@@ -1,5 +1,5 @@
 from src.training.pick_users.pick_user_dependencies import PickUserDependencies
-from options.prepro_options import PreproOptions
+from src.options.prepro_options import PreproOptions
 
 def run_pick_users(opts: PreproOptions):
     deps = PickUserDependencies(opts)

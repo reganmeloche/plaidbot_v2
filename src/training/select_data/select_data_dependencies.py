@@ -1,4 +1,4 @@
-from options.prepro_options import PreproOptions
+from src.options.prepro_options import PreproOptions
 from src.shared.printer import ConsolePrinter, IPrintMessages
 from src.training.select_data.json_extractor import JsonExtractor
 from src.training.select_data.json_file_fetcher import JsonFileFetcher

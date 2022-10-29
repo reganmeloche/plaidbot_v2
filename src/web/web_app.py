@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 from src.web.secret_decorator import secret_required
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 from src.web.web_dependencies import WebDependencies
 
 app = Flask(__name__)

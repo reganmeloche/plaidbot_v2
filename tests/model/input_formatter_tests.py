@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from options.model_options import ModelOptions
+from src.options.model_options import ModelOptions
 from src.model.input_formatter import InputFormatter
 from src.model.input_message_getter import InputMessageGetter
 from src.model.tokenizer import ITokenizeTexts
