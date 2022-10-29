@@ -32,13 +32,16 @@ class SelectDataPrinter(IPrintDataSelection):
 
         n = len(messages)
         labels = set([x.user_int_id for x in messages])
+        result['labels'] = []
+
         for x in labels:
             t = len([m for m in messages if m.user_int_id == x])
             p = round(100 * t / n, 2)
-            result[x] = {
+            result['labels'].append({
+                'label': x,
                 'total': t,
                 'percent': p
-            }
+            })
         
         char_ct = [len(x.text) for x in messages]
         result['ch'] = {
