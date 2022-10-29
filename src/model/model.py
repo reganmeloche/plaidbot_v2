@@ -6,6 +6,7 @@ from src.classes.message import InputMessage
 from src.model.batch_creator import ICreateBertBatches, BatchCreator
 from src.model.inner_model import IInnerModel, InnerModel
 from src.model.optimizer_builder import OptimizerBuilder
+from src.shared.printer import ConsolePrinter
 
 class IModel:
     def fit(self, X: List[InputMessage], y: List[int]):
@@ -54,5 +55,6 @@ class Model(IModel):
     def build(base_model: PreTrainedModel, options: ModelOptions) -> IModel:
         optimizer = OptimizerBuilder.build(base_model, options.learning_rate)
         batch_creator = BatchCreator(options.batch_size)
-        inner_model = InnerModel(base_model, options.device, optimizer)
+        printer = ConsolePrinter()
+        inner_model = InnerModel(base_model, options.device, optimizer, printer)
         return Model(batch_creator, inner_model, options)
