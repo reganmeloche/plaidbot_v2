@@ -52,16 +52,17 @@ Create a folder called "messages" in your Google Drive folder and move all of th
 
 Clone the plaidbot Github repo. Copy the 'src' folder and the 'train.ipynb' notebook into your Google Drive folder. Your Google Drive folder should now be setup as follows:
 
-- plaidbot_v2
--- messages/
---- general/
----- 2022-01-01
---- random/
---- ...other channel folders...
---- users.json
--- src/
---- ...all code files...
--- train.ipynb
+plaidbot_v2
+  messages/
+    general/
+      2022-01-01.json
+      ...other json message files...
+    random/
+    ...other channel folders...
+    users.json
+  src/
+    ...all code files...
+  train.ipynb
 
 ===== TRAINING =====
 
