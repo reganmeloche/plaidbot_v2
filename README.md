@@ -1,20 +1,16 @@
 # Plaidbot
 
-Plaidbot allows you to build a classifier that predicts the author of a Slack message. 
-
-This repo contains components for training and hosting a machine learning model that can be easily hooked up to a custom Slack application using a slash command. It is a supervised learning approach that learns to predict authorship based on your message history. Once the model is trained, it gets stored in the HuggingFace model repository. A separate Flask web application then loads that trained model when the web application is deployed. A customized slackbot is set up to make a web request to this application, which will send the slack message. The web application will respond with a guess as to which user sent the message.
-
-The default classifier is DistilBERT,..
-
-Example output:
+Plaidbot allows you to predict the author of a Slack message using a custom slack application backed by a classifier trained on your Slack message history. It can be set up as a fun custom application that can be triggered with a slash command.
 
 <img src="img/sample.png" width="300" />
+
+This repo contains components for training and hosting a machine learning model that can be easily hooked up to a custom Slack application using a slash command. It is a supervised learning approach that learns to predict authorship based on your message history. Once the model is trained, it gets stored in the HuggingFace model repository. A separate Flask web application then loads that trained model when the web application is deployed. A customized slackbot is set up to make a web request to this application, which will send the slack message. The web application will respond with a guess as to which user sent the message.
 
 The process is illustrated in the following diagram.
 
 <img src="img/diagram.jpg" width="500" />
 
-This followig instructions will guide you through the process of setting this application up using your own Slack channel.
+This following instructions will guide you through the process of setting this application up using your own Slack channel.
 
 ## How to use it
 
