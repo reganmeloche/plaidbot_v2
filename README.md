@@ -8,11 +8,11 @@ The default classifier is DistilBERT,..
 
 Example output:
 
-[image of dialogue here]
+SCREENSHOT: Example
 
 The process is illustrated in the following diagram.
 
-[ Add a diagram of the flow here]
+DIAGRAM: FLOW
 
 This readme will guide you through the process of setting this application up using your own Slack channel.
 
@@ -48,50 +48,51 @@ Unzip the folder and you will get a set of folders for each channel in your slac
 
 Create a folder called "messages" in your Google Drive folder and move all of these folders and files into it. Make sure to include the `users.json` file as well.
 
-### Training the Classifier
-
 Clone the plaidbot Github repo. Copy the 'src' folder and the 'train.ipynb' notebook into your Google Drive folder. Your Google Drive folder should now be setup as follows:
+- messages/
+  - general/
+    - 2022-01-01.json
+    -  ...other json message files...
+  - random/
+  - ...other channel folders...
+  - users.json
+- src/
+  - ...all code files...
+- train.ipynb
 
-plaidbot_v2
-  messages/
-    general/
-      2022-01-01.json
-      ...other json message files...
-    random/
-    ...other channel folders...
-    users.json
-  src/
-    ...all code files...
-  train.ipynb
 
-===== TRAINING =====
+### Training the Classifier
 
 We will now train a classifier on our exported data. The result will be a model, which gets stored in HuggingFace. All of this is done via the easy-to-use training notebook interface in the train.ipynb file. Open the train.ipynb file in Google CoLab and follow the steps in the notebook. If you're using the premium tier, ensure you switch to a GPU. You will need to set some other options and configuration before the training, but this is all explained in the notebook. Once you're finished, you should have a model saved in HuggingFace. 
 
 Also ensure that you copy and save the user_int_name_dict generated during training. We'll need in the next step.
 
-===== DEPLOYMENT =====
+### Deployment
 
-Open the code that you cloned in an IDE (I use VS Code). Test it locally to ensure that the model is being loaded from HuggingFace.
-- Copy the dictionary from the previous step into the model_options file
-- Set any of the other relevant options in the model_options.py file
-- Set a secret in the web_options.py. This adds some simple protection to your endpoints. It will need to be added as a query parameter when making a web request.
+Open the code that you cloned in an IDE (I use VS Code). Test it locally to ensure that the model is being loaded from HuggingFace:
+- Copy the dictionary from the previous step into the `src/options/model_options.py` file
+- Set any of the other relevant options in this same file. Ensure you put the same saved model name and hugging face token that you used for training into the corresponding options
+- Set a secret in the `src/options/web_options.py`. This adds some simple protection to your endpoints. It will need to be added as a query parameter when making a web request
 - Create a virtual environment and install the libraries: 
-- Run 'flask run' to run the server
+- Run 'flask run' to run the server locally
 
 On startup, the app will load the model from HuggingFace. You are now able to make predictions by calling the /predict endpoint. Make sure to add the appropriate secret as a query parameter.
 
-example...
+SCREENSHOT: POSTMAN
 
 We can now deploy our code to production. This will depend on your hosting provider. I used Azure to host it, and I downloaded the Azure App Service extension on VS Code for simple deployment.
 
+### Set up Slack Application
 
-Finally we need to create the slack integration so that it can be called from your slack channel. https://api.slack.com/apps
+Finally we need to create the slack integration so that it can be called from your slack channel. 
 
-Add a slash command as follows: (screenshot)
+Create a custom [slack app](https://api.slack.com/apps)
 
-Show screenshot of results
+Add a slash command as follows: 
 
+SCREENSHOT: SLASH
+
+,,,
 
 
 
