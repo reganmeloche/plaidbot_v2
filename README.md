@@ -8,11 +8,11 @@ The default classifier is DistilBERT,..
 
 Example output:
 
-![Example Output](img/sample.png)
+<img src="img/sample.png" width="300" />
 
 The process is illustrated in the following diagram.
 
-![Diagram](img/diagram.jpg)
+<img src="img/diagram.jpg" width="500" />
 
 This followig instructions will guide you through the process of setting this application up using your own Slack channel.
 
@@ -75,7 +75,7 @@ Open the code that you cloned in an IDE (I use VS Code). Test it locally to ensu
 
 On startup, the app will load the model from HuggingFace. You are now able to make predictions by calling the /predict endpoint. Make sure to add the appropriate secret as a query parameter. Note that it takes a while for the model to load into the web app after deployment. Give it a few minutes and then it should be ready to make predictions.
 
-SCREENSHOT: POSTMAN
+<img src="img/postman.png" width="500" />
 
 We can now deploy our code to production. This will depend on your hosting provider. I used Azure to host it, and I downloaded the Azure App Service extension on VS Code for simple deployment. 
 
@@ -87,7 +87,7 @@ Create a custom [slack app](https://api.slack.com/apps)
 
 Add a slash command as follows: 
 
-![Slash Command](img/slash.png)
+<img src="img/slash.png" width="500" />
 
 You should now be able to use the /predict command from your Slack channel and have Plaidbot send back the predicted user.
 
