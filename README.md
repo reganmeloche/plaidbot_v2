@@ -8,22 +8,19 @@ The default classifier is DistilBERT,..
 
 Example output:
 
-SCREENSHOT: Example
+<img src="img/sample.png" width="300" />
 
 The process is illustrated in the following diagram.
 
-DIAGRAM: FLOW
+<img src="img/diagram.jpg" width="500" />
 
-This readme will guide you through the process of setting this application up using your own Slack channel.
-
-
+This followig instructions will guide you through the process of setting this application up using your own Slack channel.
 
 ## How to use it
 
-Notes
+Preliminary Notes:
 - Some of the steps can take a while, including the Slack data export, loading the messages, training the classifier (especially without a GPU), and deployment. This depends largely on the number of messages you are training on.
 - Less users will generally yield better performance, and the dataset is likely to be very imbalanced. For example, if you have a slack group of 8 people, and 2 or 3 do not send very many messages, the classifier will have a difficult time predicting those users. The instructions show you how you can customize the process to only use a handful of desired users.
-- Feel free to fork the repo and customize it as desired. Make sure not to check any sensitive credentials from the options files into Github.
 
 ### Setup
 
@@ -76,11 +73,11 @@ Open the code that you cloned in an IDE (I use VS Code). Test it locally to ensu
 - Create a virtual environment and install the libraries: 
 - Run 'flask run' to run the server locally
 
-On startup, the app will load the model from HuggingFace. You are now able to make predictions by calling the /predict endpoint. Make sure to add the appropriate secret as a query parameter.
+On startup, the app will load the model from HuggingFace. You are now able to make predictions by calling the /predict endpoint. Make sure to add the appropriate secret as a query parameter. Note that it takes a while for the model to load into the web app after deployment. Give it a few minutes and then it should be ready to make predictions.
 
-SCREENSHOT: POSTMAN
+<img src="img/postman.png" width="500" />
 
-We can now deploy our code to production. This will depend on your hosting provider. I used Azure to host it, and I downloaded the Azure App Service extension on VS Code for simple deployment.
+We can now deploy our code to production. This will depend on your hosting provider. I used Azure to host it, and I downloaded the Azure App Service extension on VS Code for simple deployment. 
 
 ### Set up Slack Application
 
@@ -90,18 +87,22 @@ Create a custom [slack app](https://api.slack.com/apps)
 
 Add a slash command as follows: 
 
-SCREENSHOT: SLASH
+<img src="img/slash.png" width="500" />
 
-,,,
-
-
+You should now be able to use the /predict command from your Slack channel and have Plaidbot send back the predicted user.
 
 
 
-The tests are written with the unittest module and can be run as follows: `python -m unittest tests/file_to_test.py`
+## Development
+
+Feel free to fork the repo and customize it as desired. Make sure not to check any sensitive credentials from the options files into Github.
+
+Create a virtual environment, activate it (e.g. `source plaidbot-env/Scripts/activate`) and install the libraries (`pip install -r requirements`)
+
+The tests are written with the unittest module and a unit test can be run as follows: `python -m unittest tests/file_to_test.py`
 
 To run all unit tests: `python -m unittest discover -s 'tests/' -p '*_tests.py'`
 
 Test coverage is done using the coverage library. To use it simply replace the `python` part of the test command with `coverage run`. For example: `coverage run --source=src -m unittest discover -s 'tests/' -p '*_tests.py'`. You can then use the `coverage report` command to view a coverage report or `coverage html` to generate a more detailed report that can be viewed in a browser. 
 
-Activate env: source plaidbot-env/Scripts/activate
+
